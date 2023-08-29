@@ -6,11 +6,10 @@ from core.models import TimeStampModel
 class Article(TimeStampModel):
     title = models.CharField(max_length=255)
     url = models.CharField(max_length=1024)
-    user = models.ForeignKey('users.User', on_delete=models.CASCADE)
+    user = models.ForeignKey("users.User", on_delete=models.CASCADE)
     content = models.TextField()
     summary = models.CharField(max_length=255)
-    category_id = models.ForeignKey('articles.Category', models.SET_NULL, blank=True, null=True,)
-    tag_id = models.ForeignKey('articles.Tag', models.SET_NULL, blank=True, null=True, )
+    category_id = models.ForeignKey("articles.Category", models.SET_NULL, blank=True, null=True,)
     is_read = models.BooleanField(default=False)
     is_archived = models.BooleanField(default=False)
     is_deleted = models.BooleanField(default=False)
@@ -18,10 +17,10 @@ class Article(TimeStampModel):
 
 
 class Category(TimeStampModel):
-    user = models.ForeignKey('users.User', on_delete=models.CASCADE)
+    user = models.ForeignKey("users.User", on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
 
 
 class Tag(TimeStampModel):
-    user = models.ForeignKey('users.User', on_delete=models.CASCADE)
+    user = models.ForeignKey("users.User", on_delete=models.CASCADE, related_name="user")
     name = models.CharField(max_length=255)
