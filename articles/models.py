@@ -3,7 +3,7 @@ from django.db import models
 from core.models import TimeStampModel
 
 
-class Article(models.Model, TimeStampModel):
+class Article(TimeStampModel):
     title = models.CharField(max_length=255)
     url = models.CharField(max_length=1024)
     user = models.ForeignKey('users.User', on_delete=models.CASCADE)
@@ -17,12 +17,11 @@ class Article(models.Model, TimeStampModel):
     tags = models.ManyToManyField("articles.Tag", db_table="articles_tags", db_constraint=True)
 
 
-class Category(models.Model, TimeStampModel):
+class Category(TimeStampModel):
     user = models.ForeignKey('users.User', on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
 
 
-class Tag(models.Model, TimeStampModel):
+class Tag(TimeStampModel):
     user = models.ForeignKey('users.User', on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
-    
