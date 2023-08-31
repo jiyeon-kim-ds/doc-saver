@@ -13,7 +13,7 @@ class Article(TimeStampModel):
     is_read = models.BooleanField(default=False)
     is_archived = models.BooleanField(default=False)
     is_deleted = models.BooleanField(default=False)
-    tags = models.ManyToManyField("articles.Tag", db_table="articles_tags", db_constraint=True)
+    tags = models.ManyToManyField("articles.Tag", db_table="articles_tags", db_constraint=True, blank=True)
 
 
 class Category(TimeStampModel):
