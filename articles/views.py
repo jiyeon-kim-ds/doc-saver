@@ -25,9 +25,10 @@ class ArticleViewSet(viewsets.ModelViewSet):
         parser.feed(decoded_page)
 
         text = parser.big_text
+        title = parser.title
 
         req_data = {
-            'title': 'NA',
+            'title': title[:255] if len(text) > 255 else title,
             'url': req_url,
             'user': request.user.id,
             'content': text,
