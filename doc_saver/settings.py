@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-import os
+from datetime import timedelta
 from pathlib import Path
 import os
 
@@ -150,4 +150,9 @@ SPECTACULAR_SETTINGS = {
     'TITLE': 'Tickle Saver API',
     'DESCRIPTION': 'Tickle Saver is a personal project that saves web pages into your personal box.',
     'SERVE_INCLUDE_SCHEMA': False,
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=3),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=30),  # Set the refresh token lifetime to 1 day
 }
