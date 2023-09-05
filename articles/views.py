@@ -24,15 +24,15 @@ class ArticleViewSet(viewsets.ModelViewSet):
 
         parser.feed(decoded_page)
 
-        text = parser.big_text
         title = parser.title
+        text = parser.big_text
 
         req_data = {
             'title': title[:255] if len(text) > 255 else title,
             'url': req_url,
             'user': request.user.id,
             'content': text,
-            'summary': text[:100] if len(text) > 100 else text,
+            'summary': text[:255] if len(text) > 100 else text,
         }
 
         article_serializer = ArticleSerializer(data=req_data)
