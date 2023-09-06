@@ -1,13 +1,13 @@
 from django.urls    import path, include
 from rest_framework import routers
 
-from articles.views import ArticleViewSet
+from tags.views import TagViewSet
 
-app_name = 'articles'
+app_name = 'tags'
 
 article_router = routers.SimpleRouter()
 
-article_router.register('', ArticleViewSet, basename='Article')
+article_router.register('', TagViewSet, basename='Tag')
 
 urlpatterns = [
     path('', include(article_router.urls))

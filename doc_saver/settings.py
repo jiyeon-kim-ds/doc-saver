@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'users',
     'articles',
+    'tags',
+    'categories'
 ]
 
 MIDDLEWARE = [
@@ -153,6 +155,6 @@ SPECTACULAR_SETTINGS = {
 }
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=3),
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=15),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=30),  # Set the refresh token lifetime to 1 day
 }
