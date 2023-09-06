@@ -14,13 +14,3 @@ class Article(TimeStampModel):
     is_archived = models.BooleanField(default=False)
     is_deleted = models.BooleanField(default=False)
     tags = models.ManyToManyField("articles.Tag", db_table="articles_tags", db_constraint=True, blank=True)
-
-
-class Category(TimeStampModel):
-    user = models.ForeignKey("users.User", on_delete=models.CASCADE)
-    name = models.CharField(max_length=255)
-
-
-class Tag(TimeStampModel):
-    user = models.ForeignKey("users.User", on_delete=models.CASCADE, related_name="user")
-    name = models.CharField(max_length=255)
