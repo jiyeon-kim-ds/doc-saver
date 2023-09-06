@@ -3,7 +3,6 @@ from rest_framework import routers
 
 from articles.views import ArticleViewSet
 
-
 app_name = 'articles'
 
 article_router = routers.SimpleRouter()

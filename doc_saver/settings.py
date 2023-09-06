@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'users',
     'articles',
+    'tags'
 ]
 
 MIDDLEWARE = [
