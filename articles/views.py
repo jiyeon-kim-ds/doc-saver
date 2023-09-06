@@ -1,10 +1,10 @@
 from rest_framework import status, viewsets
 from rest_framework.response import Response
-from rest_framework.exceptions import MethodNotAllowed, PermissionDenied
+from rest_framework.exceptions import MethodNotAllowed
 from rest_framework.permissions import IsAuthenticated
 
-from articles.models import Article, Tag
-from articles.serializers import ArticleSerializer, TagSerializer
+from articles.models import Article
+from articles.serializers import ArticleSerializer
 from articles.utils import get_html_from_url, CustomHTMLParser
 
 

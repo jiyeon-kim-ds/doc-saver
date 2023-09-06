@@ -3,8 +3,8 @@ from rest_framework.response import Response
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.permissions import IsAuthenticated
 
-from articles.models import Tag
-from articles.serializers import TagSerializer
+from tags.models import Tag
+from tags.serializers import TagSerializer
 
 
 class TagViewSet(viewsets.ModelViewSet):
